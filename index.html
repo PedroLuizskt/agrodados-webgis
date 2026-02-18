@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroDados | Inteligência Geoespacial</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <span class="material-icons">agriculture</span>
+                <div>
+                    <h1>AgroDados</h1>
+                    <small>Inteligência em Geotecnologias</small>
+                </div>
+            </div>
+            <nav>
+                <a href="#" onclick="filtrarPorEscopo('BR')" class="btn-nav">
+                    <span class="material-icons">public</span> Bases Nacionais
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section id="painel-controle">
+            <div class="intro-text">
+                <h2>Explore dados geoespaciais</h2>
+                <p>Acesse bases oficiais de Clima, Solos, CAR e Sensoriamento Remoto para Agricultura de Precisão.</p>
+            </div>
+
+            <div class="mobile-selector">
+                <label for="uf-select">Selecione uma região:</label>
+                <div class="select-wrapper">
+                    <select id="uf-select" onchange="selecionarUF(this.value)">
+                        <option value="" disabled selected>Escolha um Estado...</option>
+                        <option value="BR">📍 Bases Nacionais (Brasil)</option>
+                        <optgroup label="Norte">
+                            <option value="AC">Acre</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="PA">Pará</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="TO">Tocantins</option>
+                        </optgroup>
+                        <optgroup label="Nordeste">
+                            <option value="AL">Alagoas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="SE">Sergipe</option>
+                        </optgroup>
+                        <optgroup label="Centro-Oeste">
+                            <option value="DF">Distrito Federal</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                        </optgroup>
+                        <optgroup label="Sudeste">
+                            <option value="ES">Espírito Santo</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="SP">São Paulo</option>
+                        </optgroup>
+                        <optgroup label="Sul">
+                            <option value="PR">Paraná</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="SC">Santa Catarina</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+
+            <div id="map-container" class="desktop-map">
+                </div>
+            <div class="legenda-mapa desktop-only">
+                <small>Clique no mapa para filtrar os dados estaduais</small>
+            </div>
+        </section>
+
+        <section id="resultados-section">
+            <div class="resultados-header">
+                <h3 id="titulo-resultados">Bases Nacionais</h3>
+                <span id="contador-resultados" class="badge">0 recursos encontrados</span>
+            </div>
+            
+            <div id="grid-cards" class="grid-cards">
+                </div>
+        </section>
+
+    </main>
+
+    <footer>
+    <div class="container">
+        <p>&copy; 2026 AgroDados - Inteligência em Geotecnologias</p>
+    </div>
+</footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    
+    <script src="data.js"></script> <script src="script.js"></script> </body>
+</html>

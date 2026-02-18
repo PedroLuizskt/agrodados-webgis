@@ -1,0 +1,242 @@
+/* --- Variáveis de Tema (Verde Agro) --- */
+:root {
+    --primary-color: #2E7D32; /* Verde Floresta */
+    --secondary-color: #4CAF50; /* Verde Folha */
+    --accent-color: #FFC107; /* Amarelo Milho/Soja */
+    --text-dark: #333;
+    --text-light: #666;
+    --bg-light: #f4f7f6;
+    --card-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* --- Reset Básico --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* --- Header --- */
+header {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--primary-color);
+}
+
+.logo span { font-size: 2.5rem; }
+.logo h1 { font-size: 1.5rem; font-weight: 700; margin: 0; line-height: 1.1; }
+.logo small { font-size: 0.8rem; color: var(--text-light); }
+
+.btn-nav {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background-color: #e8f5e9;
+    transition: 0.3s;
+}
+
+.btn-nav:hover { background-color: #c8e6c9; }
+
+/* --- Layout Containers --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+main { padding: 40px 0; }
+
+/* --- Painel de Controle (Mapa e Seletor) --- */
+#painel-controle {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.intro-text { margin-bottom: 20px; }
+
+/* Desktop Map Styling */
+#map-container {
+    height: 500px;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    border: 1px solid #ddd;
+    margin-top: 20px;
+    z-index: 1;
+}
+
+.desktop-only { display: block; margin-top: 5px; color: #888;}
+
+/* Mobile Selector Styling (Hidden by default on Desktop) */
+.mobile-selector {
+    display: none; /* Escondido no Desktop */
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    text-align: left;
+}
+
+.select-wrapper select {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+/* --- Seção de Resultados --- */
+.resultados-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+.badge {
+    background-color: var(--text-dark);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+}
+
+/* --- GRID DE CARDS --- */
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsivo Automático */
+    gap: 25px;
+}
+
+/* Card Styling */
+.resource-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-top: 4px solid var(--primary-color);
+}
+
+.resource-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.card-header h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.badge-uf {
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.badge-br { background-color: var(--accent-color); color: #333; }
+.badge-est { background-color: var(--secondary-color); color: white; }
+
+.card-body p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.tag {
+    background-color: #f0f0f0;
+    color: #555;
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.btn-acessar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.btn-acessar:hover {
+    background-color: #1b5e20;
+}
+
+/* --- RESPONSIVIDADE (MOBILE FIRST REAL) --- */
+@media (max-width: 768px) {
+    /* Esconde Mapa no Mobile */
+    #map-container, .desktop-only {
+        display: none !important;
+    }
+
+    /* Mostra Seletor no Mobile */
+    .mobile-selector {
+        display: block;
+    }
+
+    /* Ajustes de Grid */
+    .grid-cards {
+        grid-template-columns: 1fr; /* Uma coluna só */
+    }
+
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
